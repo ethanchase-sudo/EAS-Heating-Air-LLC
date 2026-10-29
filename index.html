@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EAS Heating & Air LLC — HVAC Contractor in Beaumont, Mississippi</title>
+<meta name="description" content="EAS Heating & Air LLC — installation and maintenance of central air conditioners, heat pumps, furnaces and boilers. Beaumont, MS. Call (601) 270-5637.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d1726;
+  --ink-2:#16233a;
+  --ink-3:#22324d;
+  --paper:#f3f1ec;
+  --paper-2:#e8e5dd;
+  --line:rgba(13,23,38,.12);
+  --line-d:rgba(243,241,236,.14);
+  --muted:#5b6474;
+  --cool:oklch(0.70 0.13 228);
+  --heat:oklch(0.70 0.17 48);
+  --accent:var(--cool);
+  --accent-ink:oklch(0.42 0.12 235);
+  --sans:"Archivo", "Helvetica Neue", Helvetica, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+  --pad:clamp(20px,4vw,64px);
+  --max:1360px;
+}
+body[data-mode="heat"]{ --accent:var(--heat); --accent-ink:oklch(0.48 0.15 42); }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;transition:background .6s}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.display{font-stretch:118%;font-weight:800;letter-spacing:-.02em;line-height:.95;text-wrap:balance}
+h2.display{font-size:clamp(40px,5.6vw,84px)}
+.accent{color:var(--accent);transition:color .6s}
+p{text-wrap:pretty}
+
+/* ---------- utility bar ---------- */
+.util{background:var(--ink);color:var(--paper);font-size:13px}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;height:40px;gap:20px}
+.util .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4ade80;margin-right:8px;box-shadow:0 0 0 4px rgba(74,222,128,.18);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(74,222,128,0)}}
+.util .r{display:flex;gap:28px;opacity:.8}
+.util a:hover{color:var(--accent)}
+
+/* ---------- header ---------- */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(243,241,236,.86);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header.nav.scrolled{box-shadow:0 10px 30px -18px rgba(13,23,38,.35)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .mark{width:46px;height:46px;background:var(--ink);color:var(--paper);display:grid;place-items:center;position:relative;overflow:hidden;border-radius:4px}
+.logo .mark span{font-stretch:125%;font-weight:900;font-size:15px;letter-spacing:-.02em;position:relative;z-index:1}
+.logo .mark::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--cool) 0 50%,var(--heat) 50% 100%)}
+.logo .name{line-height:1.05}
+.logo .name b{display:block;font-stretch:115%;font-weight:800;font-size:19px;letter-spacing:-.01em}
+.logo .name small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+nav.links{display:flex;gap:6px}
+nav.links a{white-space:nowrap;padding:10px 14px;font-weight:500;font-size:15px;border-radius:999px;transition:background .2s}
+nav.links a:hover{background:var(--paper-2)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .2s, background .3s, color .3s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-accent{background:var(--accent);color:var(--ink)}
+.btn-line{border:1.5px solid currentColor}
+.btn .ico{width:18px;height:18px;flex:none}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--paper);place-items:center}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(28px,4vw,56px) 0 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,56px);align-items:stretch}
+.hero-copy{display:flex;flex-direction:column;justify-content:space-between;padding:20px 0 40px}
+.mode{display:inline-flex;background:var(--paper-2);border-radius:999px;padding:5px;position:relative;align-self:flex-start;border:1px solid var(--line)}
+.mode button{position:relative;z-index:1;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px;transition:color .3s}
+.mode .pill{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);background:var(--ink);border-radius:999px;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+body[data-mode="heat"] .mode .pill{transform:translateX(100%)}
+.mode button.on{color:var(--paper)}
+.mode .sw{width:8px;height:8px;border-radius:50%}
+.hero h1{font-size:clamp(46px,6.4vw,104px);margin:36px 0 28px}
+.hero h1 .swap{display:inline-grid;white-space:nowrap}
+.hero h1 .swap > span{grid-area:1/1;transition:opacity .5s, transform .6s cubic-bezier(.7,0,.2,1)}
+.hero h1 .swap .h{opacity:0;transform:translateY(30%)}
+body[data-mode="heat"] .hero h1 .swap .c{opacity:0;transform:translateY(-30%)}
+body[data-mode="heat"] .hero h1 .swap .h{opacity:1;transform:none}
+.hero-lede{font-size:clamp(18px,1.5vw,21px);max-width:520px;color:#38414f}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-actions .btn{padding:18px 28px;font-size:16px}
+.phone-big{display:flex;align-items:center;gap:16px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.phone-big .num{font-stretch:112%;font-weight:700;font-size:clamp(26px,2.4vw,34px);letter-spacing:-.01em}
+.phone-big .lbl{color:var(--muted);font-size:14px}
+
+.hero-visual{position:relative;border-radius:18px;overflow:hidden;min-height:620px;background:var(--ink)}
+.hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .8s, transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.hero-visual .img-h{opacity:0;transform:scale(1.06)}
+body[data-mode="heat"] .hero-visual .img-c{opacity:0;transform:scale(1.06)}
+body[data-mode="heat"] .hero-visual .img-h{opacity:1;transform:none}
+.hero-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,23,38,0) 45%,rgba(13,23,38,.75))}
+.dial{position:absolute;left:24px;bottom:24px;z-index:2;display:flex;align-items:center;gap:18px;background:rgba(13,23,38,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--paper);padding:16px 22px 16px 16px;border-radius:14px;border:1px solid var(--line-d)}
+.dial .ring{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--accent) var(--deg,250deg), rgba(255,255,255,.12) 0);transition:--deg 1s;position:relative}
+.dial .ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--ink)}
+.dial .ring b{position:relative;font-stretch:110%;font-size:21px;font-weight:700}
+.dial .t{font-size:14px;line-height:1.35}
+.dial .t .mono{opacity:.6;font-size:10px;display:block;margin-bottom:4px}
+.tag-float{position:absolute;right:24px;top:24px;z-index:2;background:var(--paper);color:var(--ink);padding:10px 14px;border-radius:10px;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center}
+
+/* ---------- system ticker ---------- */
+.ticker{margin-top:clamp(36px,5vw,64px);background:var(--ink);color:var(--paper);overflow:hidden;padding:22px 0;border-top:4px solid var(--accent);transition:border-color .6s}
+.ticker .track{display:flex;gap:56px;width:max-content;animation:tick 40s linear infinite}
+.ticker span{font-stretch:120%;font-weight:700;font-size:clamp(22px,2.4vw,34px);letter-spacing:-.01em;display:flex;align-items:center;gap:56px;white-space:nowrap}
+.ticker span::after{content:"";width:12px;height:12px;background:var(--accent);transform:rotate(45deg);transition:background .6s}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- section header ---------- */
+section{position:relative}
+.sec{padding:clamp(80px,10vw,150px) 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px;color:var(--muted)}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--accent);transition:background .6s}
+.sec-head p{font-size:19px;color:#38414f;max-width:480px;justify-self:end}
+
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.svc{position:relative;border-radius:16px;overflow:hidden;background:var(--ink);color:var(--paper);min-height:560px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;transition:flex .5s}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1s cubic-bezier(.2,.7,.2,1), filter .6s;filter:saturate(.85)}
+.svc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,23,38,.15) 0%,rgba(13,23,38,.35) 40%,rgba(13,23,38,.96) 100%);transition:background .5s}
+.svc:hover img{transform:scale(1.07);filter:saturate(1)}
+.svc .num{position:absolute;top:22px;left:22px}
+.svc .kind{position:absolute;top:18px;right:18px;padding:6px 10px;border-radius:999px;background:rgba(243,241,236,.14);backdrop-filter:blur(8px);font-size:11px}
+.svc .body{padding:26px}
+.svc h3{font-stretch:118%;font-weight:800;font-size:32px;line-height:1;letter-spacing:-.015em;margin-bottom:12px}
+.svc p{font-size:15px;opacity:.82;margin-bottom:20px}
+.svc ul{list-style:none;border-top:1px solid var(--line-d)}
+.svc li{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line-d);font-size:15px;font-weight:500}
+.svc li i{font-style:normal;font-family:var(--mono);font-size:11px;opacity:.55}
+.svc-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:22px;padding:22px 26px;background:var(--paper-2);border-radius:14px;flex-wrap:wrap}
+.svc-foot p{font-size:16px}
+
+/* ---------- finder ---------- */
+.finder{background:var(--ink);color:var(--paper);overflow:hidden}
+.finder .eyebrow{color:rgba(243,241,236,.6)}
+.finder .sec-head p{color:rgba(243,241,236,.75)}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f-step{background:var(--ink-2);border:1px solid var(--line-d);border-radius:16px;padding:28px}
+.f-step .q{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:22px}
+.f-step .q h3{font-stretch:112%;font-size:22px;font-weight:700}
+.f-step .q .mono{opacity:.5}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{text-align:left;border:1px solid var(--line-d);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:22px;transition:background .25s,border-color .25s,transform .2s;min-height:118px;justify-content:space-between}
+.opt:hover{border-color:rgba(243,241,236,.4);transform:translateY(-2px)}
+.opt .ic{width:30px;height:30px;color:var(--accent)}
+.opt b{font-weight:600;font-size:17px}
+.opt small{display:block;font-size:13px;opacity:.6;font-weight:400;margin-top:2px}
+.opt.on{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.opt.on .ic{color:var(--accent-ink)}
+.f-result{grid-column:1/-1;background:var(--accent);color:var(--ink);border-radius:16px;padding:clamp(26px,3vw,40px);display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;transition:background .6s}
+.f-result h3{font-stretch:118%;font-weight:800;font-size:clamp(28px,3.2vw,46px);line-height:1;letter-spacing:-.02em;margin:10px 0 14px}
+.f-result p{max-width:560px;font-size:17px}
+.f-result .acts{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+.f-result .acts .btn{justify-content:center;padding:18px}
+.f-result .acts .btn-line{border-color:var(--ink)}
+.fade-swap{animation:fs .45s ease}
+@keyframes fs{from{opacity:0;transform:translateY(8px)}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,90px);align-items:center}
+.about-img{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-img .stamp{position:absolute;right:18px;bottom:18px;width:132px;height:132px;border-radius:50%;background:var(--paper);display:grid;place-items:center;text-align:center;animation:spin 24s linear infinite}
+.about-img .stamp svg{position:absolute;inset:0}
+.about-img .stamp .core{animation:spin 24s linear infinite reverse;font-stretch:125%;font-weight:900;font-size:26px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.about-copy blockquote{font-stretch:108%;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1.22;letter-spacing:-.01em;margin:26px 0 34px;text-wrap:pretty}
+.about-copy blockquote em{font-style:normal;background:linear-gradient(transparent 62%, color-mix(in oklch, var(--accent) 45%, transparent) 62%);transition:background .6s}
+.facts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.fact{padding:22px 22px 22px 0;border-bottom:1px solid var(--line)}
+.fact:nth-child(odd){border-right:1px solid var(--line)}
+.fact:nth-child(even){padding-left:22px}
+.fact .mono{color:var(--muted);display:block;margin-bottom:8px;font-size:11px}
+.fact b{font-weight:600;font-size:18px;line-height:1.3;display:block}
+
+/* ---------- process ---------- */
+.process{background:var(--paper-2)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s}
+.step{background:var(--paper);border-radius:16px;padding:30px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.step .n{font-stretch:125%;font-weight:900;font-size:120px;line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px var(--ink);opacity:.18}
+.step h3{font-stretch:112%;font-size:26px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+.step p{color:#38414f;font-size:16px}
+.step .bar{position:absolute;left:0;top:0;height:4px;width:0;background:var(--accent);transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.step.in .bar{width:100%}
+
+/* ---------- photo band ---------- */
+.band{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px;height:420px}
+.band figure{border-radius:16px;overflow:hidden;position:relative}
+.band img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.band figure:hover img{transform:scale(1.05)}
+.band figcaption{position:absolute;left:14px;bottom:14px;background:var(--paper);padding:7px 11px;border-radius:8px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+
+/* ---------- contact ---------- */
+.contact{background:var(--ink);color:var(--paper)}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px)}
+.contact .eyebrow{color:rgba(243,241,236,.6)}
+.c-call{display:block;margin:36px 0 10px;font-stretch:118%;font-weight:800;font-size:clamp(44px,5.6vw,84px);letter-spacing:-.02em;line-height:1;transition:color .3s}
+.c-call:hover{color:var(--accent)}
+.c-sub{opacity:.7;margin-bottom:44px}
+.c-info{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line-d)}
+.c-info > div{padding:22px 0;border-bottom:1px solid var(--line-d)}
+.c-info > div:nth-child(odd){padding-right:20px}
+.c-info .mono{opacity:.55;display:block;margin-bottom:8px;font-size:11px}
+.c-info a:hover{color:var(--accent)}
+.hours{list-style:none;margin-top:4px}
+.hours li{display:flex;justify-content:space-between;font-size:14px;padding:3px 0;opacity:.85}
+.hours li.today{opacity:1;color:var(--accent);font-weight:600}
+form.c-form{background:var(--paper);color:var(--ink);border-radius:18px;padding:clamp(24px,3vw,40px)}
+form h3{font-stretch:115%;font-weight:800;font-size:30px;letter-spacing:-.015em;margin-bottom:6px}
+form .hint{color:var(--muted);font-size:15px;margin-bottom:26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{padding:10px 16px;border-radius:999px;border:1.5px solid var(--line);font-size:14px;font-weight:500;transition:all .2s}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.field{position:relative;margin-bottom:14px}
+.field input,.field textarea{width:100%;font:inherit;font-size:16px;padding:24px 16px 10px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .2s;resize:vertical}
+.field textarea{min-height:120px}
+.field label{position:absolute;left:17px;top:17px;font-size:16px;color:var(--muted);pointer-events:none;transition:all .2s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--ink)}
+.field input:focus + label,.field input:not(:placeholder-shown) + label,.field textarea:focus + label,.field textarea:not(:placeholder-shown) + label{top:8px;font-size:11px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form .btn{width:100%;justify-content:center;padding:18px;margin-top:8px;font-size:16px}
+form .note{font-size:13px;color:var(--muted);margin-top:14px;text-align:center}
+.sent{display:none;text-align:center;padding:40px 10px}
+.sent.show{display:block}
+.sent .ok{width:64px;height:64px;border-radius:50%;background:var(--accent);margin:0 auto 18px;display:grid;place-items:center}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--paper);border-top:1px solid var(--line-d)}
+.f-big{font-stretch:125%;font-weight:900;font-size:clamp(70px,15vw,250px);letter-spacing:-.05em;line-height:.8;padding:60px 0 0;white-space:nowrap;overflow:hidden;color:transparent;-webkit-text-stroke:1px rgba(243,241,236,.22);user-select:none}
+.f-row{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px 0;border-top:1px solid var(--line-d);margin-top:26px;font-size:14px;flex-wrap:wrap}
+.f-row .l{display:flex;gap:26px;flex-wrap:wrap;opacity:.7}
+.f-row a:hover{color:var(--accent)}
+
+/* ---------- mobile call bar ---------- */
+.callbar{display:none}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* ---------- mobile drawer ---------- */
+.drawer{position:fixed;inset:0;z-index:80;background:var(--ink);color:var(--paper);padding:24px var(--pad);display:flex;flex-direction:column;transform:translateY(-100%);transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.drawer.open{transform:none}
+.drawer .top{display:flex;justify-content:space-between;align-items:center}
+.drawer nav{display:flex;flex-direction:column;margin-top:40px}
+.drawer nav a{font-stretch:120%;font-weight:800;font-size:44px;letter-spacing:-.02em;padding:10px 0;border-bottom:1px solid var(--line-d)}
+.drawer .btn{margin-top:auto;justify-content:center;padding:20px}
+
+@media (max-width:1100px){
+  nav.links{display:none}
+  .menu-btn{display:grid}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc{min-height:480px}
+}
+@media (max-width:860px){
+  body{padding-bottom:74px}
+  .util .r .hide-s{display:none}
+  .nav-cta .btn-ink{display:none}
+  .hero-grid,.sec-head,.f-grid,.about-grid,.c-grid,.f-result{grid-template-columns:1fr}
+  .sec-head p{justify-self:start}
+  .hero-visual{min-height:440px;order:-1}
+  .hero-copy{padding:0}
+  .hero h1{margin:26px 0 20px}
+  .steps{grid-template-columns:1fr}
+  .step{min-height:240px}
+  .band{grid-template-columns:1fr 1fr;height:auto}
+  .band figure{aspect-ratio:1}
+  .band figure:first-child{grid-column:1/-1;aspect-ratio:16/10}
+  .callbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(13,23,38,.94);backdrop-filter:blur(10px)}
+  .callbar .btn{justify-content:center;padding:15px}
+  .callbar .btn-line{color:var(--paper)}
+}
+@media (max-width:560px){
+  .svc-grid{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr 1fr}
+  .row2,.c-info,.facts{grid-template-columns:1fr}
+  .fact:nth-child(odd){border-right:0}
+  .fact:nth-child(even){padding-left:0}
+  .util .r{display:none}
+  .logo .name small{display:none}
+  .dial{left:14px;bottom:14px;right:14px}
+  .tag-float{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body data-mode="cool">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1L19.1 4.9"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-6 1-9.5z"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 11a8 8 0 0 0-14.9-3M4 13a8 8 0 0 0 14.9 3M5 3v5h5M19 21v-5h-5"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M9 15h6M9 18h6"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M14.7 6.3a4 4 0 0 0 5 5L22 14l-3 3-2.4-2.4a4 4 0 0 0-5-5L3 18l3 3 8.7-8.7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 4v16M4 12h16"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></symbol>
+</svg>
+
+<!-- Utility bar -->
+<div class="util">
+  <div class="wrap">
+    <div><span class="dot"></span>Open 7 days a week · Beaumont, Mississippi</div>
+    <div class="r">
+      <a class="hide-s" href="/cdn-cgi/l/email-protection#482d293b202d293c21262f29262c29213a7c7d7e7e083129202727662b2725"><span class="__cf_email__" data-cfemail="bdd8dcced5d8dcc9d4d3dadcd3d9dcd4cf89888b8bfdc4dcd5d2d293ded2d0">[email&#160;protected]</span></a>
+      <a href="tel:+16012705637">(601) 270-5637</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="nav" id="top">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="EAS Heating & Air LLC home">
+      <div class="mark"><span>EAS</span></div>
+      <div class="name"><b>EAS Heating &amp; Air</b><small>HVAC Contractor · LLC</small></div>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#finder">Find Help</a>
+      <a href="#about">About</a>
+      <a href="#process">How It Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ink">Request Service</a>
+      <a href="tel:+16012705637" class="btn btn-accent"><svg class="ico"><use href="#i-phone"/></svg>Call Now</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 8h18M3 16h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="top">
+    <div class="logo"><div class="mark" style="background:var(--paper);color:var(--ink)"><span>EAS</span></div></div>
+    <button class="menu-btn" id="closeBtn" style="display:grid;background:var(--paper);color:var(--ink)" aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#finder">Find Help</a>
+    <a href="#about">About</a>
+    <a href="#process">How It Works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="tel:+16012705637" class="btn btn-accent"><svg class="ico"><use href="#i-phone"/></svg>(601) 270-5637</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div>
+        <div class="mode" role="tablist" aria-label="Heating or cooling">
+          <span class="pill"></span>
+          <button class="on" data-set="cool"><span class="sw" style="background:var(--cool)"></span>Cooling</button>
+          <button data-set="heat"><span class="sw" style="background:var(--heat)"></span>Heating</button>
+        </div>
+        <h1 class="display">Beaumont’s<br><span class="swap"><span class="c accent">cool air</span><span class="h accent">warm home</span></span><br>specialists.</h1>
+        <p class="hero-lede">EAS Heating &amp; Air LLC installs and maintains central air conditioners, heat pumps, furnaces and boilers for homes and businesses across the Beaumont area.</p>
+        <div class="hero-actions">
+          <a href="tel:+16012705637" class="btn btn-ink"><svg class="ico"><use href="#i-phone"/></svg>Call (601) 270-5637</a>
+          <a href="#finder" class="btn btn-line">Find the right service <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="phone-big">
+        <div>
+          <div class="lbl">Open every day of the week</div>
+          <div class="num">Sun – Sat · All day</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual rv">
+      <img class="img-c" src="img/ac-hero.jpg" alt="HVAC technician testing an outdoor central air conditioning unit">
+      <img class="img-h" src="img/heating.jpg" alt="HVAC technician servicing the burner assembly of a gas furnace">
+      <div class="tag-float"><svg width="14" height="14"><use href="#i-check"/></svg>Certifications available on request</div>
+      <div class="dial">
+        <div class="ring" id="ring"><b id="temp">72°</b></div>
+        <div class="t"><span class="mono" id="dialLbl">Cooling systems</span><span id="dialTxt">Central AC &amp; heat pumps —<br>installed and maintained.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="track">
+      <span>Central Air Conditioning</span><span>Heat Pumps</span><span>Furnaces</span><span>Boilers</span><span>Installation</span><span>Maintenance</span>
+      <span>Central Air Conditioning</span><span>Heat Pumps</span><span>Furnaces</span><span>Boilers</span><span>Installation</span><span>Maintenance</span>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="sec" id="services" data-screen-label="02 Services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow mono">What we do</div>
+        <h2 class="display rv">Four systems.<br>One <span class="accent">trusted</span> crew.</h2>
+      </div>
+      <p class="rv d1">From the outdoor condenser to the furnace in the closet, we focus on the heating and cooling equipment that keeps your home comfortable year-round.</p>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc rv">
+        <img src="img/ac-replace.jpg" alt="Technician working on a central air conditioner">
+        <span class="num mono">01</span><span class="kind mono">Cooling</span>
+        <div class="body">
+          <h3>Central Air Conditioners</h3>
+          <p>Whole-home cooling, sized and set up for your space.</p>
+          <ul><li>Installation <i>→</i></li><li>Maintenance <i>→</i></li></ul>
+        </div>
+      </article>
+      <article class="svc rv d1">
+        <img src="img/heatpump.jpg" alt="Outdoor heat pump units beside a house">
+        <span class="num mono">02</span><span class="kind mono">Heat + Cool</span>
+        <div class="body">
+          <h3>Heat Pumps</h3>
+          <p>One system for both seasons — cooling in summer, heat in winter.</p>
+          <ul><li>Installation <i>→</i></li><li>Maintenance <i>→</i></li></ul>
+        </div>
+      </article>
+      <article class="svc rv d2">
+        <img src="img/furnace.jpg" alt="Technician servicing an indoor furnace">
+        <span class="num mono">03</span><span class="kind mono">Heating</span>
+        <div class="body">
+          <h3>Furnaces</h3>
+          <p>Reliable forced-air heat for the colder months.</p>
+          <ul><li>Installation <i>→</i></li><li>Maintenance <i>→</i></li></ul>
+        </div>
+      </article>
+      <article class="svc rv d3">
+        <img src="img/boiler.jpg" alt="Technician tightening boiler pipe fittings">
+        <span class="num mono">04</span><span class="kind mono">Heating</span>
+        <div class="body">
+          <h3>Boilers</h3>
+          <p>Hydronic heating systems, installed and kept in good order.</p>
+          <ul><li>Installation <i>→</i></li><li>Maintenance <i>→</i></li></ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="svc-foot rv">
+      <p><b>Not sure which system you have?</b> Give us a call and we’ll help you figure it out.</p>
+      <a href="tel:+16012705637" class="btn btn-ink"><svg class="ico"><use href="#i-phone"/></svg>(601) 270-5637</a>
+    </div>
+  </div>
+</section>
+
+<!-- Finder -->
+<section class="sec finder" id="finder" data-screen-label="03 Service Finder">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow mono">Service finder</div>
+        <h2 class="display rv">Tell us what<br>you <span class="accent">need.</span></h2>
+      </div>
+      <p class="rv d1">Two quick taps and we’ll point you to the right next step — then you can call or send us the details in one go.</p>
+    </div>
+
+    <div class="f-grid">
+      <div class="f-step rv">
+        <div class="q"><h3>Which system?</h3><span class="mono">Step 1 / 2</span></div>
+        <div class="opts" id="optSys">
+          <button class="opt on" data-v="ac"><svg class="ic"><use href="#i-snow"/></svg><b>Central AC<small>Cooling</small></b></button>
+          <button class="opt" data-v="hp"><svg class="ic"><use href="#i-cycle"/></svg><b>Heat pump<small>Heating + cooling</small></b></button>
+          <button class="opt" data-v="fu"><svg class="ic"><use href="#i-flame"/></svg><b>Furnace<small>Heating</small></b></button>
+          <button class="opt" data-v="bo"><svg class="ic"><use href="#i-drop"/></svg><b>Boiler<small>Heating</small></b></button>
+        </div>
+      </div>
+      <div class="f-step rv d1">
+        <div class="q"><h3>What kind of help?</h3><span class="mono">Step 2 / 2</span></div>
+        <div class="opts" id="optNeed">
+          <button class="opt on" data-v="install"><svg class="ic"><use href="#i-plus"/></svg><b>New installation<small>New or replacement system</small></b></button>
+          <button class="opt" data-v="maint"><svg class="ic"><use href="#i-wrench"/></svg><b>Maintenance<small>Keep it running well</small></b></button>
+        </div>
+      </div>
+      <div class="f-result rv" id="fResult">
+        <div id="fBody">
+          <span class="mono">Recommended</span>
+          <h3>Central AC installation</h3>
+          <p>Call to talk through your home and your options. Certifications are available on request before any job begins.</p>
+        </div>
+        <div class="acts">
+          <a href="tel:+16012705637" class="btn btn-ink"><svg class="ico"><use href="#i-phone"/></svg>Call (601) 270-5637</a>
+          <a href="#contact" class="btn btn-line" id="fSend">Send these details <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="sec" id="about" data-screen-label="04 About">
+  <div class="wrap about-grid">
+    <div class="about-img rv">
+      <img src="img/ac-tech-wide.jpg" alt="Technician reviewing an outdoor HVAC unit">
+      <div class="stamp">
+        <svg viewBox="0 0 132 132"><defs><path id="circ" d="M66,66 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs><text font-family="JetBrains Mono" font-size="10.5" letter-spacing="2.6" fill="#0d1726"><textPath href="#circ">BEAUMONT · MISSISSIPPI · HEATING &amp; AIR · </textPath></text></svg>
+        <div class="core">EAS</div>
+      </div>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow mono">About EAS</div>
+      <h2 class="display rv">Local. Licensed&nbsp;to <span class="accent">show it.</span></h2>
+      <blockquote class="rv d1">“Before the start of any job, we’ll provide our <em>certifications upon request</em> — so you know you’re hiring the right people for the work.”</blockquote>
+      <div class="facts rv d2">
+        <div class="fact"><span class="mono">Based in</span><b>Beaumont, MS<br>Perry County</b></div>
+        <div class="fact"><span class="mono">Focus</span><b>Heating &amp; air conditioning</b></div>
+        <div class="fact"><span class="mono">Services</span><b>Installation &amp; maintenance</b></div>
+        <div class="fact"><span class="mono">Hours</span><b>Open 7 days a week</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="sec process" id="process" data-screen-label="05 How It Works">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow mono">How it works</div>
+        <h2 class="display rv">Getting help is<br><span class="accent">simple.</span></h2>
+      </div>
+      <p class="rv d1">No call centers, no runaround. You talk with the team that does the work.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="bar"></span><div class="n">01</div><div><h3>Reach out</h3><p>Call (601) 270-5637 or send the form below with a few details about your system.</p></div></div>
+      <div class="step rv d1"><span class="bar"></span><div class="n">02</div><div><h3>Talk it through</h3><p>We’ll discuss what’s going on and plan an installation or maintenance visit that fits you.</p></div></div>
+      <div class="step rv d2"><span class="bar"></span><div class="n">03</div><div><h3>Get comfortable</h3><p>The work gets done right — and our certifications are available any time you ask.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Photo band -->
+<section class="sec" style="padding-bottom:0;padding-top:clamp(60px,7vw,100px)" data-screen-label="06 Gallery">
+  <div class="wrap band">
+    <figure class="rv"><img src="img/heating.jpg" alt="Furnace service"><figcaption>Furnace service</figcaption></figure>
+    <figure class="rv d1"><img src="img/thermostat.jpg" alt="Wall thermostat set to 70 degrees"><figcaption>Year-round comfort</figcaption></figure>
+    <figure class="rv d2"><img src="img/ac-hero.jpg" alt="Central AC testing" style="object-position:70% 50%"><figcaption>AC maintenance</figcaption></figure>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="sec contact" id="contact" data-screen-label="07 Contact" style="margin-top:clamp(80px,10vw,150px)">
+  <div class="wrap c-grid">
+    <div>
+      <div class="eyebrow mono">Contact</div>
+      <h2 class="display rv">Let’s get your<br>home <span class="accent">comfortable.</span></h2>
+      <a href="tel:+16012705637" class="c-call rv d1">(601) 270‑5637</a>
+      <p class="c-sub">Tap to call — we’re open every day.</p>
+      <div class="c-info">
+        <div><span class="mono">Address</span><a href="https://www.google.com/maps/search/?api=1&query=75+Isom+Jordan+Rd+Beaumont+MS+39423" target="_blank" rel="noopener">75 Isom Jordan Rd<br>Beaumont, MS 39423 ↗</a></div>
+        <div><span class="mono">Email</span><a href="/cdn-cgi/l/email-protection#91f4f0e2f9f4f0e5f8fff6f0fff5f0f8e3a5a4a7a7d1e8f0f9fefebff2fefc" style="word-break:break-all">easheatingandair4566<br>@yahoo.com</a></div>
+        <div style="grid-column:1/-1"><span class="mono">Opening hours</span>
+          <ul class="hours" id="hours"></ul>
+        </div>
+      </div>
+    </div>
+
+    <form class="c-form rv d1" id="cForm" novalidate>
+      <div id="formBody">
+        <h3>Request service</h3>
+        <p class="hint">Tell us about your request and we’ll get back to you.</p>
+        <div class="mono" style="color:var(--muted);margin-bottom:10px;font-size:11px">System</div>
+        <div class="chips" data-group="system">
+          <button type="button" class="chip" data-v="Central AC">Central AC</button>
+          <button type="button" class="chip" data-v="Heat pump">Heat pump</button>
+          <button type="button" class="chip" data-v="Furnace">Furnace</button>
+          <button type="button" class="chip" data-v="Boiler">Boiler</button>
+          <button type="button" class="chip" data-v="Not sure">Not sure</button>
+        </div>
+        <div class="mono" style="color:var(--muted);margin-bottom:10px;font-size:11px">Service</div>
+        <div class="chips" data-group="need">
+          <button type="button" class="chip" data-v="Installation">Installation</button>
+          <button type="button" class="chip" data-v="Maintenance">Maintenance</button>
+        </div>
+        <div class="field"><input id="fName" placeholder=" " required><label for="fName">Your name</label></div>
+        <div class="row2">
+          <div class="field"><input id="fPhone" type="tel" placeholder=" "><label for="fPhone">Phone number</label></div>
+          <div class="field"><input id="fEmail" type="email" placeholder=" "><label for="fEmail">Email</label></div>
+        </div>
+        <div class="field"><textarea id="fMsg" placeholder=" "></textarea><label for="fMsg">Tell us about your request</label></div>
+        <button class="btn btn-ink" type="submit">Send request <svg class="ico"><use href="#i-arrow"/></svg></button>
+        <p class="note">Opens your email app with your details filled in. Prefer to talk? Call (601) 270‑5637.</p>
+      </div>
+      <div class="sent" id="sent">
+        <div class="ok"><svg width="30" height="30"><use href="#i-check"/></svg></div>
+        <h3>Almost there</h3>
+        <p class="hint" style="margin:8px 0 22px">Your email app should open with your request ready to send. If it didn’t, call us at <a href="tel:+16012705637" style="text-decoration:underline">(601) 270‑5637</a>.</p>
+        <button type="button" class="btn btn-line" id="again" style="width:auto">Start over</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-big" aria-hidden="true">EAS HEATING &amp; AIR</div>
+    <div class="f-row">
+      <div class="logo">
+        <div class="mark" style="background:var(--paper);color:var(--ink)"><span>EAS</span></div>
+        <div class="name"><b>EAS Heating &amp; Air LLC</b><small style="color:rgba(243,241,236,.55)">75 Isom Jordan Rd · Beaumont, MS 39423</small></div>
+      </div>
+      <div class="l">
+        <a href="#services">Services</a><a href="#finder">Find Help</a><a href="#about">About</a><a href="#contact">Contact</a>
+        <a href="tel:+16012705637">(601) 270-5637</a>
+      </div>
+    </div>
+    <div class="f-row" style="margin-top:0;opacity:.5;font-size:13px">
+      <span>© <span id="yr"></span> EAS Heating &amp; Air LLC. All rights reserved.</span>
+      <span>Heating &amp; Air Conditioning · Beaumont, Mississippi</span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a href="tel:+16012705637" class="btn btn-accent"><svg class="ico"><use href="#i-phone"/></svg>Call now</a>
+  <a href="#contact" class="btn btn-line">Request service</a>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+  const body=document.body;
+  // ---- heat/cool mode ----
+  const dial={cool:{t:'72°',deg:'250deg',l:'Cooling systems',x:'Central AC &amp; heat pumps —<br>installed and maintained.'},
+              heat:{t:'68°',deg:'210deg',l:'Heating systems',x:'Furnaces, boilers &amp; heat pumps —<br>installed and maintained.'}};
+  function setMode(m){
+    body.dataset.mode=m;
+    document.querySelectorAll('.mode button').forEach(b=>b.classList.toggle('on',b.dataset.set===m));
+    document.getElementById('temp').textContent=dial[m].t;
+    document.getElementById('ring').style.setProperty('--deg',dial[m].deg);
+    document.getElementById('dialLbl').textContent=dial[m].l;
+    document.getElementById('dialTxt').innerHTML=dial[m].x;
+    try{localStorage.setItem('eas-mode',m)}catch(e){}
+  }
+  document.querySelectorAll('.mode button').forEach(b=>b.addEventListener('click',()=>{setMode(b.dataset.set);stopAuto()}));
+  let saved=null;try{saved=localStorage.getItem('eas-mode')}catch(e){}
+  setMode(saved||'cool');
+  // gentle auto-swap in hero until user interacts
+  let auto=setInterval(()=>setMode(body.dataset.mode==='cool'?'heat':'cool'),6000);
+  function stopAuto(){clearInterval(auto)}
+
+  // ---- header shadow ----
+  const nav=document.querySelector('header.nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+
+  // ---- drawer ----
+  const dr=document.getElementById('drawer');
+  document.getElementById('menuBtn').onclick=()=>dr.classList.add('open');
+  document.getElementById('closeBtn').onclick=()=>dr.classList.remove('open');
+  dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>dr.classList.remove('open')));
+
+  // ---- reveal ----
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // ---- finder ----
+  const names={ac:'Central AC',hp:'Heat pump',fu:'Furnace',bo:'Boiler'};
+  const modeFor={ac:'cool',hp:null,fu:'heat',bo:'heat'};
+  const copy={
+    install:s=>`Thinking about a new or replacement ${s.toLowerCase()}? Call to talk through your home and your options. Certifications are available on request before any job begins.`,
+    maint:s=>`Keep your ${s.toLowerCase()} running the way it should. Call or send us a note to set up a maintenance visit at a time that works for you.`
+  };
+  let fs={sys:'ac',need:'install'};
+  function pick(groupId,key){
+    document.querySelectorAll('#'+groupId+' .opt').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('#'+groupId+' .opt').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');fs[key]=b.dataset.v;renderF();
+      if(key==='sys'&&modeFor[fs.sys]){stopAuto();setMode(modeFor[fs.sys])}
+    }));
+  }
+  function renderF(){
+    const s=names[fs.sys];const n=fs.need==='install'?'installation':'maintenance';
+    const el=document.getElementById('fBody');
+    el.innerHTML=`<span class="mono">Recommended</span><h3>${s} ${n}</h3><p>${copy[fs.need](s)}</p>`;
+    el.classList.remove('fade-swap');void el.offsetWidth;el.classList.add('fade-swap');
+  }
+  pick('optSys','sys');pick('optNeed','need');
+  document.getElementById('fSend').addEventListener('click',()=>{
+    setChip('system',names[fs.sys]);setChip('need',fs.need==='install'?'Installation':'Maintenance');
+  });
+
+  // ---- form chips ----
+  const sel={system:null,need:null};
+  function setChip(g,v){
+    sel[g]=v;document.querySelectorAll(`.chips[data-group="${g}"] .chip`).forEach(c=>c.classList.toggle('on',c.dataset.v===v));
+  }
+  document.querySelectorAll('.chips').forEach(grp=>grp.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+    const g=grp.dataset.group;setChip(g,sel[g]===c.dataset.v?null:c.dataset.v);
+  })));
+
+  // ---- form submit ----
+  const form=document.getElementById('cForm');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=document.getElementById('fName');
+    if(!name.value.trim()){name.focus();name.style.borderColor='var(--heat)';return}
+    const lines=[
+      'Name: '+name.value.trim(),
+      'Phone: '+document.getElementById('fPhone').value.trim(),
+      'Email: '+document.getElementById('fEmail').value.trim(),
+      'System: '+(sel.system||'—'),
+      'Service: '+(sel.need||'—'),'',
+      document.getElementById('fMsg').value.trim()
+    ];
+    const subj=`Service request${sel.system?' — '+sel.system:''}${sel.need?' '+sel.need.toLowerCase():''}`;
+    window.location.href='mailto:easheatingandair4566@yahoo.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(lines.join('\n'));
+    document.getElementById('formBody').style.display='none';
+    document.getElementById('sent').classList.add('show');
+  });
+  document.getElementById('again').onclick=()=>{form.reset();setChip('system',null);setChip('need',null);document.getElementById('formBody').style.display='';document.getElementById('sent').classList.remove('show')};
+
+  // ---- hours ----
+  const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];const td=new Date().getDay();
+  document.getElementById('hours').innerHTML=days.map((d,i)=>`<li class="${i===td?'today':''}"><span>${d}${i===td?' · Today':''}</span><span>Open all day</span></li>`).join('');
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
